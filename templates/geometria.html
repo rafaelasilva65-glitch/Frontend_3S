@@ -1,0 +1,181 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+<h1>Operações Geometricas</h1>
+<div class="calculos">
+    <div class="card_operacao">
+        <h2>Área do Triângulo</h2>
+        <h2>A = (b × h) / 2</h2>
+        <form class="form-triangulo" action="{{ url_for('triangulo') }}" method="post">
+            <label>
+                <input placeholder="Digite um número" name="form-n1" class="form-control">
+            </label>
+
+            <p class="operador">x</p>
+
+            <label>
+                <input placeholder="Digite um número" name="form-n2" class="form-control">
+            </label>
+
+
+          <p class="resultado">
+                {% if triangulo is defined %}
+                    {{ n1 }} * {{ n2 }} / 2 = {{ triangulo }}
+                {% else %}
+                {% endif %}
+            </p>
+
+            <button type="submit" class="btn btn-info w-100">Calcular</button>
+        </form>
+    </div>
+
+    <div class="card_operacao">
+        <h2>Perimetro do Triângulo</h2>
+        <h2>Lado + Lado + Lado</h2>
+        <form class="form-perimetro_tria" action="{{ url_for('perimetro_tria') }}" method="post">
+            <label>
+              <input placeholder="Digite um número" name="form-n1" class="form-control">
+            </label>
+
+            <p class="operador">+</p>
+
+            <label>
+              <input placeholder="Digite um número" name="form-n2" class="form-control">
+            </label>
+
+            <p class="operador">+</p>
+
+            <label>
+              <input placeholder="Digite um número" name="form-n3" class="form-control">
+            </label>
+
+          <p class="resultado">
+                {% if perimetro_tria is defined %}
+                    {{ n1 }} + {{ n2 }} + {{n3}} = {{ perimetro_tria }}
+                {% else %}
+                {% endif %}
+            </p>
+
+            <button type="submit" class="btn btn-info w-100">Calcular</button>
+        </form>
+    </div>
+
+    <div class="card_operacao">
+        <h2>Área do Circulo</h2>
+        <h2>π × r²</h2>
+        <form class="form-area_circ" action="{{ url_for('area_circ') }}" method="post">
+            <label>
+                <input placeholder="Digite um número" name="form-n1" class="form-control">
+            </label>
+
+
+            <p class="operador">x</p>
+
+            <label>
+                <input placeholder="Digite um número" name="form-n2" class="form-control">
+            </label>
+
+
+          <p class="resultado">
+                {% if area_circ is defined %}
+                    {{ n1 }} * {{ n2 }} * 3,14 = {{ area_circ }}
+                {% else %}
+                {% endif %}
+          </p>
+
+            <button type="submit" class="btn btn-info w-100">Calcular</button>
+        </form>
+    </div>
+
+    <div class="card_operacao">
+        <h2>Perimetro do Circulo</h2>
+        <h2>C=2πr</h2>
+        <form class="form-perimetro_circ" action="{{ url_for('perimetro_circ') }}" method="post">
+            <label>
+                <input placeholder="Digite um número" name="form-n1" class="form-control">
+            </label>
+
+
+            <p class="operador">x</p>
+
+            <label>
+                <h2>3,14</h2>
+            </label>
+
+
+          <p class="resultado">
+                {% if perimetro_circ is defined %}
+                    {{ n1 }} * 3,14 = {{ perimetro_circ }}
+                {% else %}
+                {% endif %}
+          </p>
+
+            <button type="submit" class="btn btn-info w-100">Calcular</button>
+        </form>
+    </div>
+
+    <div class="card_operacao">
+        <h2>Área do Quadrado</h2>
+        <h2>A= L X L</h2>
+        <form class="form-area_quad" action="{{ url_for('area_quad') }}" method="post">
+            <label>
+                <input placeholder="Digite um número" name="form-n1" class="form-control">
+            </label>
+
+
+            <p class="operador">x</p>
+
+            <label>
+                <input placeholder="Digite um número" name="form-n2" class="form-control">
+            </label>
+
+
+          <p class="resultado">
+                {% if area_quad is defined %}
+                    {{ n1 }} * {{ n2 }} = {{ area_quad }}
+                {% else %}
+                {% endif %}
+          </p>
+
+            <button type="submit" class="btn btn-info w-100">Calcular</button>
+        </form>
+    </div>
+
+    <div class="card_operacao">
+        <h2>Perimetro do Quadrado</h2>
+        <h2>L + L + L + L</h2>
+        <form class="form-perimetro_quad" action="{{ url_for('perimetro_quad') }}" method="post">
+            <label>
+                <input placeholder="Digite um número" name="form-n1" class="form-control">
+            </label>
+
+            <p class="operador">+</p>
+
+            <label>
+                <input placeholder="Digite um número" name="form-n2" class="form-control">
+            </label>
+
+            <p class="operador">+</p>
+
+            <label>
+              <input placeholder="Digite um número" name="form-n3" class="form_control">
+            </label>
+
+            <p class="operador">+</p>
+
+            <label>
+              <input placeholder="Digite um número" name="form-n4" class="form_control">
+            </label>
+
+            <p class="resultado">
+                {% if perimetro_quad is defined %}
+                    {{ n1 }} + {{ n2 }} + {{n3}} + {{n4}} = {{ perimetro_quad }}
+                {% else %}
+                {% endif %}
+            </p>
+
+            <button type="submit" class="btn btn-info w-100">Calcular</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
