@@ -140,42 +140,5 @@
             <button type="submit" class="btn btn-info w-100">Calcular</button>
         </form>
     </div>
-
-    <div class="card_operacao">
-        <h2>Perimetro do Quadrado</h2>
-        <h2>L + L + L + L</h2>
-        <form class="form-perimetro_quad" action="{{ url_for('perimetro_quad') }}" method="post">
-            <label>
-                <input placeholder="Digite um número" name="form-n1" class="form-control">
-            </label>
-
-            <p class="operador">+</p>
-
-            <label>
-                <input placeholder="Digite um número" name="form-n2" class="form-control">
-            </label>
-
-            <p class="operador">+</p>
-
-            <label>
-              <input placeholder="Digite um número" name="form-n3" class="form_control">
-            </label>
-
-            <p class="operador">+</p>
-
-            <label>
-              <input placeholder="Digite um número" name="form-n4" class="form_control">
-            </label>
-
-            <p class="resultado">
-                {% if perimetro_quad is defined %}
-                    {{ n1 }} + {{ n2 }} + {{n3}} + {{n4}} = {{ perimetro_quad }}
-                {% else %}
-                {% endif %}
-            </p>
-
-            <button type="submit" class="btn btn-info w-100">Calcular</button>
-        </form>
-    </div>
 </div>
 {% endblock %}

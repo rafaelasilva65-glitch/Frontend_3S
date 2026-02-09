@@ -130,6 +130,9 @@ def perimetro_quad():
             return render_template("geometria.html", n1=n1, n2=n2, n3=n3, n4=n4, perimetro_quad=perimetro_quad)
 
     return render_template("geometria.html")
+
+
+    return render_template("geometria.html")
 #TODO Final do código
 
 if __name__ == '__main__':
