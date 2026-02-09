@@ -3,8 +3,25 @@
 {% block conteudo %}
 
 <h1>Operações Aritméticas</h1>
+<!-- Passo 2: Verificar se possui mensagens enviadas pelo app -->
+<!-- Passo 3: definir with_cateories=true caso queira ter acesso as categorias -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+<div class="flash-error px-3">
+    <!-- Passo 4: Percorrer a lista de mensagens -->
+    {% for category, message in messages %}
+    <!-- Passo 5: Criar um card filho -->
+    <div class="alert {{ category }} alert-dismissible fade show px-5" role="alert">
+        <strong>{{ message }}</strong>.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+{% endwith %}
 
 <div class="calculos">
+
 
     <div class="card_operacao">
         <h2>Adição</h2>
@@ -21,14 +38,29 @@
 
             <p class="resultado">
                 {% if soma is defined %}
-                    {{ n1 }} + {{ n2 }} = {{ soma }}
+                {{ n1 }} + {{ n2 }} = {{ soma }}
                 {% else %}
                 {% endif %}
             </p>
 
             <button type="submit" class="btn btn-info w-100">Somar</button>
         </form>
-
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-primary" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        <i class="bi bi-info-circle"></i>Como calcular?
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <h4>Adição</h4>
+                        <p>Para somar é preciso de 2 ou mais numeros</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="card_operacao">
@@ -46,7 +78,7 @@
 
             <p class="resultado">
                 {% if sub is defined %}
-                    {{ n1 }} - {{ n2 }} = {{ sub }}
+                {{ n1 }} - {{ n2 }} = {{ sub }}
                 {% else %}
                 {% endif %}
             </p>
@@ -70,7 +102,7 @@
 
             <p class="resultado">
                 {% if multi is defined %}
-                    {{ n1 }} x {{ n2 }} = {{ multi }}
+                {{ n1 }} x {{ n2 }} = {{ multi }}
                 {% else %}
                 {% endif %}
             </p>
@@ -93,7 +125,7 @@
 
             <p class="resultado">
                 {% if divi is defined %}
-                    {{ n1 }} : {{ n2 }} = {{ divi }}
+                {{ n1 }} : {{ n2 }} = {{ divi }}
                 {% else %}
                 {% endif %}
             </p>

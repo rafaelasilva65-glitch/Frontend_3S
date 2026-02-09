@@ -109,12 +109,14 @@ a {
 }
 
 .card_operacao {
+    display: flex;
     border: 1px solid black;
+    flex-direction: column;
     border-radius: 10px;
     text-align: center;
 }
 
-.form-somar .form-subtrair .form-multiplicar .form-dividir {
+.form-somar .form-subtrair .form-multiplicar .form-dividir .form-login {
     display: flex;
     flex-direction: column;
     gap: 6px;
@@ -133,3 +135,21 @@ a {
     font-size: 40px;
     color: white;
 }
+
+.login {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+
+
+}
+
+.card_login {
+    display: flex;
+    border: 1px solid black;
+    flex-direction: column;
+    border-radius: 10px;
+    height: 200px;
+    text-align: center;
+}
+

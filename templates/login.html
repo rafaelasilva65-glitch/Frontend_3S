@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+<h1>Login</h1>
+<div class="login">
+    <div class="card_login">
+        <form class="form-login" action="{{ url_for('login') }}" method="post">
+            CPF:
+            <label>
+                <input placeholder="Digite seu CPF"  class="form-control" name="form-l_cpf">
+            </label>
+
+            Senha:
+            <label>
+                <input placeholder="Digite sua senha" class="form-control" name="form-l_senha">
+            </label>
+
+            <button type="submit" class="btn btn-info w-100">Cadastar</button>
+        </form>
+{% endblock %}
