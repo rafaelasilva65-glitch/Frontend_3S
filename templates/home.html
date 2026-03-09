@@ -2,13 +2,67 @@
 
 {% block conteudo %}
 
-<div class="home">
-    <div class="texto-left">
-        <h1>Bem vindo ao site de soluções do SENAI</h1>
-    </div>
-    <div class="img-right">
+<div class="carrossel d-flex overflow-hidden">
+ <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+ <div class="carousel-inner ">
+   <div class="carousel-item active bg-dark" data-bs-interval="2000">
+     <img src="/static/img/atuacao1.jpg" class="d-block w-100 opacity-50" alt="...">
+   </div>
+   <div class="carousel-item bg-dark" data-bs-interval="2000">
+     <img src="/static/img/atuacao2.jpg" class="d-block w-100 opacity-50" alt="...">
+   </div>
+   <div class="carousel-item bg-dark" data-bs-interval="2000">
+     <img src="/static/img/atuacao3.jpg" class="d-block w-100 opacity-50" alt="..." >
+   </div>
+ </div>
+ <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+   <span class="visually-hidden">Previous</span>
+ </button>
+ <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+   <span class="carousel-control-next-icon" aria-hidden="true"></span>
+   <span class="visually-hidden">Next</span>
+ </button>
+</div>
 
-    </div>
+ <div class="w-100 h-100 position-absolute d-flex flex-column justify-content-evenly" >
+       <p class="title-senai text-white display-1 text-center">Capacitação profissional na indústria</p>
+       <p class="subtitle-senai text-white display-6 text-center">Confira os nossos cursos Profissionalizantes de Atuação</p>
+   </div>
+</div>
+
+<div class="cursos">
+
+ <div class="curso-text col-8">
+     <p>Os cursos de atuação são programas de formação profissional que<br>preparam indivíduos para seguir carreira como atores ou atrizes,<br>oferecendo treinamento em diversas áreas como interpretação,<br>expressão corporal e improvisação.
+</p>
+ </div>
+
+ <div class="curso-img bg-dark col-4">
+     <img src="/static/img/atuacao4.jpg" class="w-100 h-100">
+ </div>
+
+  <div class="curso-text2 col-8">
+      <p>Os cursos de atuação são voltados para aqueles que desejam desenvolver<br>suas habilidades artísticas e se destacar no mercado de trabalho. Eles<br>oferecem treinamento em várias áreas, incluindo:
+</p>
+        <br>
+
+      <p>Interpretação: Aprendizado de técnicas para representar personagens de<br>forma convincente.
+</p>
+        <br>
+
+      <p>Expressão Corporal: Desenvolvimento da capacidade de comunicar<br>emoções e intenções através do corpo.
+</p>
+        <br>
+
+      <p>Voz: Treinamento para melhorar a dicção, projeção e controle vocal.
+</p>
+        <br>
+  </div>
+
+  <div class="curso-img2 bg-dark col-4">
+     <img src="/static/img/atuacao5.jpg" class="w-100 h-100">
+  </div>
 </div>
 
 {% endblock %}

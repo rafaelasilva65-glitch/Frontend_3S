@@ -4,17 +4,80 @@
 <h1>Login</h1>
 <div class="login">
     <div class="card_login">
-        <form class="form-login" action="{{ url_for('login') }}" method="post">
-            CPF:
-            <label>
-                <input placeholder="Digite seu CPF"  class="form-control" name="form-l_cpf">
+        <form class="form-login" action="{{ url_for('login') }}" methods="post">
+            <label class="my-2">
+                Email:
+                <input placeholder="Digite seu email"  class="form-control w-100" name="form-email">
             </label>
 
-            Senha:
-            <label>
-                <input placeholder="Digite sua senha" class="form-control" name="form-l_senha">
+            <label class="my-2">
+                Senha:
+                <input placeholder="Digite sua senha" class="form-control w-100" name="form-senha">
             </label>
 
-            <button type="submit" class="btn btn-info w-100">Cadastar</button>
+            <button type="submit" class="btn btn-info my-2">Entrar</button>
         </form>
+
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            não tem uma conta? Registra-se
+        </button>
+
+<!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Cadastre-se</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form class="form-subtrair" action="{{url_for('cadastro_funcionario')}}" method="post">
+                    <label>
+                        Nome:
+                        <input placeholder="Digite o nome" name="form-nome" class="form-control w-100">
+                    </label>
+
+                    <label>
+                        Data de Nascimento:
+                        <input type="date" placeholder="Digite a Data" name="form-data_nascimento" class="form-control w-100">
+                    </label>
+
+                    <label>
+                        CPF:
+                        <input placeholder="Digite o CPF" name="form-cpf" class="form-control w-100">
+                    </label>
+
+                    <label>
+                        Email:
+                        <input type="email" placeholder="Digite o Email" name="form-email" class="form-control w-100">
+                    </label>
+
+                    <label>
+                        Senha:
+                        <input type="password" placeholder="Digite a Senha" name="form-senha" class="form-control w-100">
+                    </label>
+
+                    <label>
+                        Cargo:
+                        <input placeholder="Digite a Cargo" name="form-Cargo" class="form-control w-100">
+                    </label>
+
+                    <label>
+                        Salario:
+                        <input placeholder="Digite a salario" name="form-salario" class="form-control w-100">
+                    </label>
+
+                    <button type="submit" class="btn btn-info w-100">Cadastrar</button>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-danger" data-bs-dismiss="modal">Fechar</button>
+
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+
 {% endblock %}

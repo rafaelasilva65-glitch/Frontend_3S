@@ -6,92 +6,94 @@
 
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-  Novo Funcionario
+    Novo funcionario
 </button>
 
 <!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form class="form-subtrair" action="{{url_for('subtrair')}}" method="post">
-            <label>
-                Nome:
-                <input placeholder="Digite o nome" name="form-nome" class="form-control w-100">
-            </label>
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Cadastre-se</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form class="form-subtrair" action="{{url_for('cadastro_funcionario')}}" method="post">
+                    <label>
+                        Nome:
+                        <input placeholder="Digite o nome" name="form-nome" class="form-control w-100">
+                    </label>
 
-            <label>
-                Data de Nascimento:
-                <input type="date" placeholder="Digite a Data" name="form-data" class="form-control w-100">
-            </label>
+                    <label>
+                        Data de Nascimento:
+                        <input type="date" placeholder="Digite a Data" name="form-data" class="form-control w-100">
+                    </label>
 
-            <label>
-                CPF:
-                <input placeholder="Digite o CPF" name="form-cpf" class="form-control w-100">
-            </label>
+                    <label>
+                        CPF:
+                        <input placeholder="Digite o CPF" name="form-cpf" class="form-control w-100">
+                    </label>
 
-            <label>
-                Email:
-                <input type="email" placeholder="Digite o Email" name="form-email" class="form-control w-100">
-            </label>
+                    <label>
+                        Email:
+                        <input type="email" placeholder="Digite o Email" name="form-email" class="form-control w-100">
+                    </label>
 
-            <label>
-                Senha:
-                <input type="password" placeholder="Digite a Senha" name="form-senha" class="form-control w-100">
-            </label>
+                    <label>
+                        Senha:
+                        <input type="password" placeholder="Digite a Senha" name="form-senha"
+                               class="form-control w-100">
+                    </label>
 
+                    <label>
+                        Cargo:
+                        <input placeholder="Digite a Cargo" name="form-cargo" class="form-control w-100">
+                    </label>
 
-            <label>
-                Cargo:
-                <input placeholder="Digite a Cargo" name="form-Cargo" class="form-control w-100">
-            </label>
+                    <label>
+                        Salario:
+                        <input placeholder="Digite a salario" name="form-salario" class="form-control w-100">
+                    </label>
 
-            <label>
-                Salario:
-                <input placeholder="Digite a salario" name="form-salario" class="form-control w-100">
-            </label>
-
-            <button type="submit" class="btn btn-info w-100">Cadastrar</button>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary btn-danger" data-bs-dismiss="modal">Fechar</button>
-      </div>
+                    <button type="submit" class="btn btn-info w-100">Cadastrar</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-danger" data-bs-dismiss="modal">Fechar</button>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 
 <table class="table">
-  <thead>
+    <thead>
     <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Nome</th>
-      <th scope="col">Data de nascimento</th>
-      <th scope="col">CPF</th>
-      <th scope="col">Email</th>
-      <th scope="col">Senha</th>
-      <th scope="col">Cargo</th>
-      <th scope="col">Salario</th>
-      <th scope="col">Ações</th>
+        <th scope="col">ID</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Data de nascimento</th>
+        <th scope="col">CPF</th>
+        <th scope="col">Email</th>
+        <th scope="col">Senha</th>
+        <th scope="col">Cargo</th>
+        <th scope="col">Salario</th>
+        <th scope="col">Ações</th>
     </tr>
-  </thead>
-  <tbody>
+    </thead>
+    <tbody>
     <tr>
-      <th scope="row">1</th>
-      <td>Rafael</td>
-      <td>11/12/2007</td>
-      <td>474.196.728-06</td>
-      <td>Rafael.a.silva@aluno.senai</td>
-      <td>1234567</td>
-      <td>Estudante</td>
-      <td>R$1.000</td>
-      <td><a href=""></a><i class="bi bi-pencil text-primary"></i> <i class="bi bi-trash text-danger"></i> <a href=""></a></td>
+        <th scope="row">1</th>
+        <td>Rafael</td>
+        <td>11/12/2007</td>
+        <td>474.196.728-06</td>
+        <td>Rafael.a.silva@aluno.senai</td>
+        <td>*******</td>
+        <td>Estudante</td>
+        <td>R$1.000</td>
+        <td><a href=""></a><i class="bi bi-pencil text-primary"></i> <i class="bi bi-trash text-danger"></i> <a
+                href=""></a></td>
     </tr>
-  </tbody>
+    </tbody>
 </table>
 
 {% endblock %}

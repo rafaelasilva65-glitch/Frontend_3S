@@ -1,7 +1,24 @@
-from flask import Flask, render_template, request, flash
+from flask import Flask, request, render_template, url_for, flash, redirect
+from sqlalchemy.exc import SQLAlchemyError
+from database import db_session, Funcionario
+from sqlalchemy import select, and_, func
+from flask_login import LoginManager, login_required, login_user, logout_user, current_user
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '1234'
+
+login_manager = LoginManager(app)
+login_manager.login_view = 'login'
+
+@app.teardown_appcontext
+def shutdown_session(exception=None):
+    db_session.remove()
+
+@login_manager.user_loader
+def login_user(user_id):
+    user = select(Funcionario).where(Funcionario.id == int(user_id))
+    result = db_session.execute(user).scalar_one_or_none()
+    return result
 
 @app.route('/')
 def home():
@@ -21,12 +38,86 @@ def operacoes():
     return render_template("operacoes.html")
 
 @app.route('/funcionarios')
+@login_required
 def funcionarios():
     return render_template("funcionarios.html")
 
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login():
-    return render_template("login.html")
+    if request.method == 'POST':
+        email = request.form.get['form-email']
+        senha = request.form.get['form-senha']
+        ''' verificação usando not
+        if not email or not senha:
+            flash('Preenchar todos o campos', 'danger')
+            return render_template('login.html')
+        '''
+        if not email and not senha:
+            verificar_email = select(Funcionario).where(Funcionario.email == email)
+            resultado_email = db_session.execute(verificar_email).scalar_one_or_none()
+            if resultado_email:
+                # se encotrado na base de dados
+                if resultado_email.check_password(senha):
+                     # login correto
+                    login_user(resultado_email)
+                    flash(f'Login Sucesso', 'success')
+                    return redirect(url_for('home'))
+                else:
+                    # login incorreto
+                    flash('Senha incorreta', 'alert-danger')
+                    return render_template('login.html')
+            else:
+                # se não encontrado
+                flash(f'Email não encontrado', 'alert-danger')
+                return redirect(url_for('login'))
+
+        else:
+            return render_template('login.html')
+    else:
+        return render_template('login.html')
+
+@app.route('/logout')
+def logout():
+    logout_user()
+    return redirect(url_for('home'))
+
+
+@app.route('/cadastro_funcionario', methods=['GET', 'POST'])
+def cadastro_funcionario():
+    if request.method == 'POST':
+        nome = request.form.get('form-nome')
+        data_nascimento = request.form.get('form-data_nascimento')
+        cpf = request.form.get('form-cpf')
+        email = request.form.get('form-email')
+        senha = request.form.get('form-senha')
+        cargo = request.form.get('form-cargo')
+        salario = request.form.get('form-salario')
+
+        if not nome or email or senha:
+            flash('Preencher os campos', 'danger')
+            return render_template('funcionarios.html')
+
+        verifica_email = select(Funcionario).where(Funcionario.email == email)
+        existe_email = db_session.execute(verifica_email).scalar_one_or_none()
+
+        if existe_email:
+            flash(f'Email {email} ja esta cadastrado', 'danger')
+            return render_template('funcionarios.html')
+        try:
+            novo_funcionarios = Funcionario(nome=nome, data_nascimento=data_nascimento, cpf=cpf, email=email, senha=senha, cargo=cargo, salario=float(salario))
+            novo_funcionarios.set_password(senha)
+            db_session.add(novo_funcionarios)
+            db_session.commit()
+            flash(f'Usuario {nome} cadastrado com sucesso', 'success')
+            return redirect(url_for('funcionarios'))
+        except SQLAlchemyError as e:
+            flash(f'Erro na base de dados ao cadastrar usuario: {e}', 'danger')
+            print(f'Erro na base de dados:{e}')
+            return redirect(url_for('funcionarios'))
+        except Exception as e:
+            flash(f'Erro ao cadastro o funcionario: {e}', 'danger')
+            print(f'Erro ao cadastrar:{e}')
+    return render_template('funcionarios.html')
 
 @app.route('/somar', methods=['GET', 'POST'])
 def somar():
@@ -210,4 +301,4 @@ def perimetro_hexa():
 #TODO Final do código
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=5005)

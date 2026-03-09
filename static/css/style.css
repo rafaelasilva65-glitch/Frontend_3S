@@ -149,7 +149,44 @@ a {
     border: 1px solid black;
     flex-direction: column;
     border-radius: 10px;
-    height: 200px;
+    height: 250px;
+    width: 250px;
     text-align: center;
+}
+
+.title-senai{
+    font-family: "Bangers", system-ui;]
+    font-weight: 400;
+    font-style: normal;
+}
+
+.cursos{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 90vh;
+}
+
+.curso-text{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.carrossel{
+    display: flex;
+    height: 100vh;
+}
+
+.curso-img{
+    display: flex;
+    height: 90vh;
+    justify-content: flex-end;
+}
+
+.curso-text2{
+    display: flex;
+    text-align: center;
+    justify-content: flex-end;
 }
 
