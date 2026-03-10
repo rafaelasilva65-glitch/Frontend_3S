@@ -42,6 +42,10 @@ def operacoes():
 def funcionarios():
     return render_template("funcionarios.html")
 
+@app.route('/animais')
+def animais():
+    return render_template('animais.html')
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':

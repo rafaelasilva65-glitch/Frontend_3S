@@ -19,41 +19,41 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form class="form-subtrair" action="{{url_for('cadastro_funcionario')}}" method="post">
+                <form id="form-cadastro_funcionario" class="form-subtrair" action="{{url_for('cadastro_funcionario')}}" method="post">
                     <label>
                         Nome:
-                        <input placeholder="Digite o nome" name="form-nome" class="form-control w-100">
+                        <input id="input-nome" placeholder="Digite o nome" name="form-nome" class="form-control w-100">
                     </label>
 
                     <label>
                         Data de Nascimento:
-                        <input type="date" placeholder="Digite a Data" name="form-data" class="form-control w-100">
+                        <input id="input-data_nascimento" type="date" placeholder="Digite a Data" name="form-data" class="form-control w-100">
                     </label>
 
                     <label>
                         CPF:
-                        <input placeholder="Digite o CPF" name="form-cpf" class="form-control w-100">
+                        <input id="input-cpf" placeholder="Digite o CPF" name="form-cpf" class="form-control w-100">
                     </label>
 
                     <label>
                         Email:
-                        <input type="email" placeholder="Digite o Email" name="form-email" class="form-control w-100">
+                        <input id="input-email" type="email" placeholder="Digite o Email" name="form-email" class="form-control w-100">
                     </label>
 
                     <label>
                         Senha:
-                        <input type="password" placeholder="Digite a Senha" name="form-senha"
+                        <input id="input-senha" type="password" placeholder="Digite a Senha" name="form-senha"
                                class="form-control w-100">
                     </label>
 
                     <label>
                         Cargo:
-                        <input placeholder="Digite a Cargo" name="form-cargo" class="form-control w-100">
+                        <input id="input-cargo" placeholder="Digite a Cargo" name="form-cargo" class="form-control w-100">
                     </label>
 
                     <label>
                         Salario:
-                        <input placeholder="Digite a salario" name="form-salario" class="form-control w-100">
+                        <input id="input-salario" placeholder="Digite a salario" name="form-salario" class="form-control w-100">
                     </label>
 
                     <button type="submit" class="btn btn-info w-100">Cadastrar</button>
@@ -61,6 +61,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary btn-danger" data-bs-dismiss="modal">Fechar</button>
+                <button class="btn btn-danger my-2" onclick="limpaInputsLogin()">Cancelar</button>
             </div>
         </div>
     </div>

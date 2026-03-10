@@ -4,18 +4,19 @@
 <h1>Login</h1>
 <div class="login">
     <div class="card_login">
-        <form class="form-login" action="{{ url_for('login') }}" methods="post">
+        <form id="form-login" class="form-login" action="{{ url_for('login') }}" methods="post">
             <label class="my-2">
                 Email:
-                <input placeholder="Digite seu email"  class="form-control w-100" name="form-email">
+                <input id="input-email" placeholder="Digite seu email"  class="form-control w-100" name="form-email">
             </label>
 
             <label class="my-2">
                 Senha:
-                <input placeholder="Digite sua senha" class="form-control w-100" name="form-senha">
+                <input id="input-senha" placeholder="Digite sua senha" class="form-control w-100" name="form-senha">
             </label>
 
             <button type="submit" class="btn btn-info my-2">Entrar</button>
+            <button class="btn btn-danger my-2" onclick="limpaInputsLogin()">Cancelar</button>
         </form>
 
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
@@ -31,7 +32,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                <form class="form-subtrair" action="{{url_for('cadastro_funcionario')}}" method="post">
+                <form id="form" class="form-subtrair" action="{{url_for('cadastro_funcionario')}}" method="post">
                     <label>
                         Nome:
                         <input placeholder="Digite o nome" name="form-nome" class="form-control w-100">
@@ -79,5 +80,11 @@
         </div>
     </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+
+<script src="/static/js/verificacoes.js"></script>
 
 {% endblock %}
