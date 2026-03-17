@@ -215,3 +215,102 @@ a {
     font-size: 4rem;
     user-select: none;
 }
+
+body {
+            background-color: #fdf8f3;
+            color: #2d3436;
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, h4, .font-display {
+            font-family: 'Quicksand', sans-serif;
+        }
+        .brand-accent { color: #f28e2c; }
+        .bg-brand-accent { background-color: #f28e2c; }
+        .text-brand-accent { color: #f28e2c; }
+        .btn-brand-accent {
+            background-color: #f28e2c;
+            color: white;
+            border: none;
+        }
+        .btn-brand-accent:hover {
+            background-color: #d9771a;
+            color: white;
+        }
+        .btn-outline-brand {
+            background-color: #fffaf5;
+            color: #f28e2c;
+            border: 1px solid rgba(242, 142, 44, 0.2);
+        }
+        .btn-outline-brand:hover {
+            background-color: #f28e2c;
+            color: white;
+            border-color: #f28e2c;
+        }
+        .breed-card {
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            border: none;
+            border-radius: 1.25rem;
+            overflow: hidden;
+            background: white;
+            margin-bottom: 2.5rem;
+        }
+        .breed-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08) !important;
+        }
+        .progress-bar-custom {
+            background-color: #f28e2c;
+        }
+        .badge-soft-blue {
+            background-color: #eff6ff;
+            color: #2563eb;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.65rem;
+            border: none;
+        }
+        .origin-badge {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(4px);
+            color: #f28e2c;
+            font-weight: 700;
+            font-size: 0.7rem;
+            padding: 0.4rem 0.9rem;
+            border-radius: 9999px;
+            position: absolute;
+            top: 1.25rem;
+            left: 1.25rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            z-index: 2;
+        }
+        .search-input {
+            border-radius: 9999px;
+            border: 1px solid #eee;
+            background-color: #fcfcfc;
+            padding-left: 2.75rem;
+            height: 45px;
+        }
+        .search-input:focus {
+            box-shadow: 0 0 0 4px rgba(242, 142, 44, 0.1);
+            border-color: #f28e2c;
+        }
+        .search-container svg {
+            position: absolute;
+            left: 1.1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #9ca3af;
+            z-index: 4;
+        }
+        .card-img-container {
+            min-height: 300px;
+        }
+        @media (min-width: 768px) {
+            .card-img-container {
+                height: 100%;
+            }
+        }
+        .object-fit-cover {
+            object-fit: cover;
+        }
